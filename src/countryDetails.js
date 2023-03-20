@@ -7,15 +7,15 @@ import BackButton from './components/backButton';
 import FirstDetailsList from './components/firstDetailsList';
 import SecondDetailsList from './components/secondDetailsList';
 import CountryBorders from './components/countryBorders'
-import { Container } from '@mui/system';
 
 const StyledGrid = styled(Grid)(() => ({
-    backgroundColor: '#fafafa'
+    backgroundColor: '#fafafa',
+    padding: '100px'
 }));
 
 const StyledCountryFlag = styled('img')(() => ({
-    height: '550px',
-    width: '700px'
+    height: '450px',
+    width: '600px'
 }));
 
 const StyledName = styled(Typography)(() => ({
@@ -29,11 +29,6 @@ const StyledRow = styled('div')(() => ({
     fontWeight: '300',
     fontSize: '15px'
 }));
-
-// const StyledLink = styled(Link)(() => ({
-//     textDecoration: 'none',
-//     color: '#111517'
-// }));
 
 const StyledTypography = styled(Typography)(() => ({
     fontFamily: 'Nunito Sans',
@@ -49,17 +44,16 @@ function DetailsPage(props) {
             <CssBaseline />
             <AppHeader />
 
-<Container>
             <BackButton />
 
             <StyledGrid container paddingTop={6} gridTemplateColumns="repeat(2, 1fr)" gap={12}>
                 <Grid item>
-                    <StyledCountryFlag src={props.countryFlag} />
+                    <StyledCountryFlag src={props.countryFlag}/>
                 </Grid>
                 <Grid item>
                     <StyledName variant='h4' component="div">{props.name}</StyledName>
                     <StyledRow>
-                        <Grid container paddingTop={6} gridTemplateColumns="repeat(2, 1fr)" gap={5}>
+                        <Grid container paddingTop={6} gridTemplateColumns="repeat(2, 1fr)" gap={12}>
                             <FirstDetailsList
                                 nativeName='België'
                                 population='11,319,511'
@@ -82,7 +76,6 @@ function DetailsPage(props) {
                     </StyledRow>
                 </Grid>
             </StyledGrid>
-</Container>
         </React.Fragment>
     );
 }
