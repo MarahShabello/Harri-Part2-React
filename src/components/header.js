@@ -23,7 +23,7 @@ const StyledToolbar = styled(Toolbar)(() => ({
 function AppHeader() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{width: '100%'}}>
         <StyledToolbar>
           <StyledTypography variant="h5" component="div" sx={{ flexGrow: 1 }}>
             Where in the world?
