@@ -8,7 +8,7 @@ const Search = styled('div')(({ theme }) => ({
     borderRadius: theme.shape.borderRadius,
     backgroundColor: '#fff',
     fontFamily: 'Nunito Sans',
-    marginLeft: 0,
+    margin: '0',
     width: '100%',
     [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(1),
@@ -24,14 +24,20 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    margin: '0'
+}));
+
+const StyledSearchIcon = styled(SearchIcon)(() => ({
+    color: '#858585'
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     fontFamily: 'Nunito Sans',
-    color: 'inherit',
+    margin: '0',
+    color: '#858585',
     '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        padding: theme.spacing(2, 2, 2, 0),
+        paddingLeft: `calc(1em + ${theme.spacing(6)})`,
         width: '100%',
         [theme.breakpoints.up('sm')]: {
             width: '50ch',
@@ -39,20 +45,26 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
+const StyledToolbar = styled(Toolbar)(() => ({
+    padding: '0',
+    margin: '0',
+    marginLeft: '-32px'
+}))
+
 function SearchAppBar() {
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Toolbar>
-                <Search sx={{ boxShadow: 1 }}>
+        <Box>
+            <StyledToolbar>
+                <Search>
                     <SearchIconWrapper>
-                        <SearchIcon />
+                        <StyledSearchIcon />
                     </SearchIconWrapper>
                     <StyledInputBase
                         placeholder="Search for a country … "
                         inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search>
-            </Toolbar>
+            </StyledToolbar>
         </Box>
     );
 }
