@@ -4,27 +4,29 @@ import { Box, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
 
 const StyledInputLabel = styled(InputLabel)(() => ({
     fontFamily: 'Nunito Sans',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    border: 'none',
 }));
 
 const StyledSelect = styled(Select)(() => ({
     fontFamily: 'Nunito Sans',
     textAlign: 'left',
     backgroundColor: '#fff',
-    height: '50px',
+    height: '100%',
+    border: 'none #fff',
     borderRadius: '4px',
 }));
 
 function BasicSelect() {
   return (
-    <Box sx={{ width: 120 }}>
+    <Box sx={{ width: 150 }}>
       <FormControl fullWidth>
         <StyledInputLabel id="demo-simple-select-label">Filter By</StyledInputLabel>
         <StyledSelect
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Region"
-          sx={{boxShadow: 2}}
+          sx={{boxShadow: 1}}
         >
           <MenuItem value='no-filter'>No filter</MenuItem>
           <MenuItem value='africa'>Africa</MenuItem>
