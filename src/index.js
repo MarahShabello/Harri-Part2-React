@@ -13,7 +13,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter basename='/Harri-Part2-React'>
-
       <Routes>
         <Route exact path="/" element={<HomePage />} />
 
@@ -24,7 +23,6 @@ root.render(
           />}
         />
       </Routes>
-
     </BrowserRouter>
   </React.StrictMode>
 );
