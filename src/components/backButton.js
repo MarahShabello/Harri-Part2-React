@@ -15,11 +15,15 @@ const StyledLink = styled(Link)(() => ({
     color: '#111517'
 }));
 
+const StyledBackIcon = styled(KeyboardBackspaceIcon)(() => ({
+    marginInlineEnd: '10px'
+}));
+
 function BackButton() {
     return (
         <StyledLink to="/">
             <StyledButton variant="contained">
-                <KeyboardBackspaceIcon /> Back
+                <StyledBackIcon /> Back
             </StyledButton>
         </StyledLink>
     );
