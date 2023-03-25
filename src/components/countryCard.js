@@ -2,6 +2,8 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
+// import StarIcon from '@mui/icons-material/Star';
+import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
 const StyledCountryName = styled(Typography)(() => ({
     fontFamily: 'Nunito Sans',
@@ -28,9 +30,25 @@ const StyledLink = styled(Link)(() => ({
     color: '#111517'
 }));
 
+const StyledStarIcon = styled(StarRateRoundedIcon)(() => ({
+    color: 'lightgray',
+    fontSize: '35px',
+    width: '30px',
+    marginInlineStart: 'auto',
+    marginInlineEnd: '5px',
+    marginBottom: '5px'
+}));
+
+const SryledCard = styled(Card)(() => ({
+    border: 'none',
+    boxShadow: '1px 1px 8px lightgray',
+    // minWidth: '30%',
+    width: 280,
+}));
+
 function ActionAreaCard(props) {
     return (
-        <Card sx={{ width: 275, boxShadow: 2 }}>
+        <SryledCard>
 
             <StyledLink to="/details">
                 <CardActionArea>
@@ -40,7 +58,7 @@ function ActionAreaCard(props) {
                         src={props.flagURL}
                         alt={props.name}
                     />
-                    <CardContent sx={{ marginBottom: 3 }}>
+                    <CardContent sx={{ marginBottom: { xs: 0, sm: 0, md: 3 }}}>
                         <StyledCountryName gutterBottom variant="h5" component="div" sx={{ marginBottom: 2 }}>
                             {props.name}
                         </StyledCountryName>
@@ -60,8 +78,11 @@ function ActionAreaCard(props) {
                     </CardContent>
                 </CardActionArea>
             </StyledLink>
+            <StyledRow>
+                <StyledStarIcon sx={{ display: { xs: 'block', sm: 'block', md: 'none' } }} />
+            </StyledRow>
 
-        </Card>
+        </SryledCard>
     );
 }
 
