@@ -3,14 +3,15 @@ import { styled } from '@mui/material/styles';
 import { Box, List, ListItem } from '@mui/material/';
 
 const StyledBox = styled(Box)(() => ({
-    backgroundColor: '#fafafa',
+    backgroundColor: '#fff',
     color: '#111517'
 }));
 
 const StyledCountryData = styled('span')(() => ({
     fontFamily: 'Nunito Sans',
     fontWeight: '600',
-    fontSize: '16px'
+    fontSize: '16px',
+    marginInlineEnd: '3px'
 }));
 
 function SecondDetailsList(props) {
