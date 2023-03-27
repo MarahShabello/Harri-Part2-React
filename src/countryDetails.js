@@ -16,14 +16,17 @@ const StyledGrid = styled(Grid)(() => ({
 
 const StyledCountryFlag = styled('img')(() => ({
     height: '80%',
-    width: '650px',
+    width: '620px',
     objectFit: 'cover'
 }));
 
-const StyledName = styled(Typography)(() => ({
+const StyledName = styled(Typography)(({theme}) => ({
     fontFamily: 'Nunito Sans',
     fontWeight: '800',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    [theme.breakpoints.down('md')]: {
+        marginTop: '-80px'
+    },
 }));
 
 const StyledRow = styled('div')(() => ({
@@ -32,12 +35,25 @@ const StyledRow = styled('div')(() => ({
     fontSize: '15px'
 }));
 
-const StyledTypography = styled(Typography)(() => ({
+const StyledBorderCountries = styled('div')(() => ({
     fontFamily: 'Nunito Sans',
     fontWeight: '600',
     fontSize: '16px',
     marginRight: '5px',
     marginTop: '10px'
+}));
+
+const StyledDetailsGrid = styled(Grid)(() => ({
+    marginTop: '40px'
+}));
+
+const StyledDetailsContainer = styled(Grid)(({ theme }) => ({
+    [theme.breakpoints.up('md')]: {
+        marginTop: '30px'
+    },
+    [theme.breakpoints.down('md')]: {
+        marginTop: '20px'
+    },
 }));
 
 function DetailsPage(props) {
@@ -47,41 +63,42 @@ function DetailsPage(props) {
             <AppHeader />
 
             <BoxSize pv={6} ph={6}>
+                <BackButton />
 
-            <BackButton />
-
-            <StyledGrid container gridTemplateColumns="repeat(2, 1fr)" gap={12}>
-                <Grid item>
-                    <StyledCountryFlag src={props.countryFlag}/>
-                </Grid>
-                <Grid item sx={{ height: '50%', textAlign: 'start'}}>
-                    <StyledName variant='h4' component="div">{props.name}</StyledName>
-                    <StyledRow>
-                        <Grid container paddingTop={6} gap={12}>
-                            <FirstDetailsList
-                                nativeName='België'
-                                population='11,319,511'
-                                region='Europe'
-                                subRegion='Western Europe'
-                                capital='Brussels'
-                            />
-                            <SecondDetailsList
-                                tld='.be'
-                                currencies='Euro'
-                                languages='Dutch, French, German'
-                            />
-                        </Grid>
-                    </StyledRow>
-                    <StyledRow>
-                        <StyledTypography>Borders:</StyledTypography>
-                        <CountryBorders
-                            props={['France', 'Germany', 'Netherlands']}
-                        />
-                    </StyledRow>
-                </Grid>
-            </StyledGrid>
-
+                <StyledGrid container gridTemplateColumns="repeat(2, 1fr)" columnGap={10}>
+                    <Grid item>
+                        <StyledCountryFlag src={props.countryFlag} />
+                    </Grid>
+                    <StyledDetailsGrid>
+                        <StyledName variant='h4' component="div">{props.name}</StyledName>
+                        <StyledRow sx={{ marginBottom: '40px' }}>
+                            <StyledDetailsContainer container>
+                                <FirstDetailsList
+                                    nativeName='België'
+                                    population='11,319,511'
+                                    region='Europe'
+                                    subRegion='Western Europe'
+                                    capital='Brussels'
+                                />
+                                <SecondDetailsList
+                                    tld='.be'
+                                    currencies='Euro'
+                                    languages='Dutch, French, German'
+                                />
+                            </StyledDetailsContainer>
+                        </StyledRow>
+                        <StyledRow>
+                            <StyledBorderCountries>
+                                Border Countries:
+                                <CountryBorders
+                                    props={['France', 'Germany', 'Netherlands']}
+                                />
+                            </StyledBorderCountries>
+                        </StyledRow>
+                    </StyledDetailsGrid>
+                </StyledGrid>
             </BoxSize>
+
         </React.Fragment>
     );
 }
