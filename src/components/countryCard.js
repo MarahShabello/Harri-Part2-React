@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
-// import StarIcon from '@mui/icons-material/Star';
+import { styled } from '@mui/material/styles';
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
+import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
 
 const StyledCountryName = styled(Typography)(() => ({
     fontFamily: 'Nunito Sans',
     fontWeight: '800',
     fontSize: '20px',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    marginBottom: '20px'
 }));
 
 const StyledCountryData = styled('span')(() => ({
@@ -22,7 +22,8 @@ const StyledCountryData = styled('span')(() => ({
 const StyledRow = styled('div')(() => ({
     fontFamily: 'Nunito Sans',
     fontWeight: '300',
-    fontSize: '15px'
+    fontSize: '16px',
+    marginBottom: '5px'
 }));
 
 const StyledLink = styled(Link)(() => ({
@@ -30,20 +31,45 @@ const StyledLink = styled(Link)(() => ({
     color: '#111517'
 }));
 
-const StyledStarIcon = styled(StarRateRoundedIcon)(() => ({
+const StyledStarIcon = styled(StarRateRoundedIcon)(({theme}) => ({
     color: 'lightgray',
     fontSize: '35px',
-    width: '30px',
     marginInlineStart: 'auto',
     marginInlineEnd: '5px',
-    marginBottom: '5px'
+    marginBottom: '5px',
+    [theme.breakpoints.down('md')]: {
+        display: 'block'
+    },
+    [theme.breakpoints.only('md')]: {
+        display: 'block'
+    },
+    [theme.breakpoints.up('lg')]: {
+        display: 'none'
+    },
 }));
 
 const SryledCard = styled(Card)(() => ({
     border: 'none',
+    borderRadius: '8px',
     boxShadow: '1px 1px 8px lightgray',
-    // minWidth: '30%',
-    width: 280,
+    width: 290,
+}));
+
+const StyledCardContent = styled(CardContent)(({theme}) => ({
+    marginTop: '10px',
+    marginLeft: '5px',
+    marginRight: '5px',
+    [theme.breakpoints.down('md')]: {
+        marginBottom: '0'
+    },
+    [theme.breakpoints.up('lg')]: {
+        marginBottom: '20px'
+    },
+}));
+
+const StyledCardMedia = styled(CardMedia)(() => ({
+    height: '165px',
+    objectFit: 'cover'
 }));
 
 function ActionAreaCard(props) {
@@ -52,14 +78,13 @@ function ActionAreaCard(props) {
 
             <StyledLink to="/details">
                 <CardActionArea>
-                    <CardMedia
+                    <StyledCardMedia
                         component="img"
-                        height="165"
                         src={props.flagURL}
                         alt={props.name}
                     />
-                    <CardContent sx={{ marginBottom: { xs: 0, sm: 0, md: 3 }}}>
-                        <StyledCountryName gutterBottom variant="h5" component="div" sx={{ marginBottom: 2 }}>
+                    <StyledCardContent>
+                        <StyledCountryName gutterBottom variant="h5" component="div">
                             {props.name}
                         </StyledCountryName>
 
@@ -75,11 +100,11 @@ function ActionAreaCard(props) {
                             <StyledCountryData>Capital:</StyledCountryData>
                             {props.capital}
                         </StyledRow>
-                    </CardContent>
+                    </StyledCardContent>
                 </CardActionArea>
             </StyledLink>
             <StyledRow>
-                <StyledStarIcon sx={{ display: { xs: 'block', sm: 'block', md: 'none' } }} />
+                <StyledStarIcon />
             </StyledRow>
 
         </SryledCard>
