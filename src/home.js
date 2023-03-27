@@ -29,7 +29,18 @@ const StyledGrid = styled(Grid)(() => ({
 
 const StyledBackground = styled('div')(() => ({
   backgroundColor: '#fafafa'
-}))
+}));
+
+const StyledCountriesContainer = styled(Grid)(() => ({
+  display: 'flex',
+  justifyContent: 'space-between'
+}));
+
+const StyledSearchFilterContainer = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    rowGap: '40px'
+  },
+}));
 
 function HomePage() {
   return (
@@ -40,10 +51,10 @@ function HomePage() {
       <StyledBackground>
         <StyledBox sx={{ flexGrow: 1 }}>
           <BoxSize pv={1} ph={6}>
-            <Grid container gridTemplateColumns="repeat(2, 1fr)" justifyContent={'space-between'}>
+            <StyledSearchFilterContainer container gridTemplateColumns="repeat(2, 1fr)" justifyContent={'space-between'}>
               <SearchAppBar />
               <BasicSelect />
-            </Grid>
+            </StyledSearchFilterContainer>
           </BoxSize>
         </StyledBox>
 
@@ -53,7 +64,7 @@ function HomePage() {
               <FavouritesSection />
             </Grid>
             <Grid item lg={9}>
-              <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }} gridTemplateColumns="repeat(3, 1fr)" rowGap={8}>
+              <StyledCountriesContainer container gridTemplateColumns="repeat(3, 1fr)" rowGap={10}>
 
                 <ActionAreaCard
                   name="Germany"
@@ -111,7 +122,7 @@ function HomePage() {
                   region="Africa"
                   capital="Algiers"
                 />
-              </Grid>
+              </StyledCountriesContainer>
             </Grid>
           </StyledGrid>
 
