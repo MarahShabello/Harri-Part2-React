@@ -7,7 +7,9 @@ import { AppBar, Box, Toolbar, Button, Typography } from '@mui/material';
 const StyledAppBar = styled(AppBar)(() => ({
   backgroundColor: '#fff',
   width: '100%',
-  position: 'static'
+  position: 'static',
+  border: 'none',
+  boxShadow: '1px 1px 8px lightgray',
 }));
 
 const StyledTypography = styled(Typography)(() => ({
