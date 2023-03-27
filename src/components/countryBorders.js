@@ -6,6 +6,10 @@ const StyledBorder = styled(Button)(() => ({
     fontFamily: 'Nunito Sans',
     backgroundColor: '#fff',
     color: '#111517',
+    border: 'none',
+    boxShadow: '1px 1px 5px lightgray',
+    width: '130px',
+    padding: '8px'
 }));
 
 function CountryBorders({ props }) {
