@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Harri-Part2-React/static/css/main.e9818826.css",
-    "main.js": "/Harri-Part2-React/static/js/main.42a753ae.js",
+    "main.js": "/Harri-Part2-React/static/js/main.1b165f26.js",
     "static/js/787.159cc081.chunk.js": "/Harri-Part2-React/static/js/787.159cc081.chunk.js",
     "static/media/af.svg": "/Harri-Part2-React/static/media/af.39e74801e5626eaaf6f0231272ee9edb.svg",
     "static/media/al.svg": "/Harri-Part2-React/static/media/al.dd17f9b0b19aa16e7afe8e156454f33d.svg",
@@ -13,11 +13,11 @@
     "static/media/is.svg": "/Harri-Part2-React/static/media/is.bb94eebadbe98e459758ddcf03f1dfb9.svg",
     "static/media/de.svg": "/Harri-Part2-React/static/media/de.ed5be69598a5a9c32bc893f67ede7160.svg",
     "static/media/belgium.svg": "/Harri-Part2-React/static/media/belgium.bd884fd68fd30c1cb1c6550032d37700.svg",
-    "main.42a753ae.js.map": "/Harri-Part2-React/static/js/main.42a753ae.js.map",
+    "main.1b165f26.js.map": "/Harri-Part2-React/static/js/main.1b165f26.js.map",
     "787.159cc081.chunk.js.map": "/Harri-Part2-React/static/js/787.159cc081.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e9818826.css",
-    "static/js/main.42a753ae.js"
+    "static/js/main.1b165f26.js"
   ]
 }
