@@ -5,29 +5,34 @@ import FavouriteCountry from './favouriteCountry';
 
 import germanyFlag from './de.svg';
 
-const Favourites = styled('div')(() => ({
+const Favourites = styled('div')(({theme}) => ({
     fontFamily: 'Nunito Sans',
     backgroundColor: '#fff',
     padding: '20px',
     borderRadius: '5px',
-    height: '100%'
+    height: '100%',
+    [theme.breakpoints.down('md')]: {
+        display: 'none'
+    },
+    [theme.breakpoints.only('md')]: {
+        display: 'none'
+    },
+    [theme.breakpoints.up('lg')]: {
+        display: 'block'
+    },
 }));
 
 const StyledTypography = styled(Typography)(() => ({
     fontFamily: 'Nunito Sans',
     fontWeight: '800',
-    fontSize: '25px',
+    fontSize: '30px',
     marginBottom: '25px'
 }));
 
 function FavouritesSection() {
     return (
-        <Favourites sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
+        <Favourites>
             <StyledTypography>Favourites</StyledTypography>
-            <FavouriteCountry
-                name='Germany'
-                flag={germanyFlag}
-            />
             <FavouriteCountry
                 name='Germany'
                 flag={germanyFlag}

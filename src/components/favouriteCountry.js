@@ -3,16 +3,19 @@ import { styled } from '@mui/material/styles';
 import ClearIcon from '@mui/icons-material/Clear';
 
 const CountryFlag = styled('img')(() => ({
-    height: '25px',
-    width: '45px',
+    height: '28px',
+    width: '48px',
     marginRight: '10px',
-    borderRadius: '5px'
+    border: 'none',
+    borderRadius: '5px',
+    objectFit: 'cover'
 }));
 
 const StyledClearIcon = styled(ClearIcon)(() => ({
     backgroundColor: '#fafafa',
     borderRadius: '50px',
-    padding: '2px'
+    padding: '5px',
+    fontSize: '25px'
 }));
 
 const StyledFavCountry = styled('div')(() => ({
@@ -25,16 +28,15 @@ const StyledFavCountry = styled('div')(() => ({
 const FavCountry = styled('span')(() => ({
     fontFamily: 'Nunito Sans',
     fontWeight: '600',
-    fontSize: '16px'
+    fontSize: '18px',
+    marginLeft: '-120px'
 }));
 
 function FavouriteCountry(props) {
     return (
         <StyledFavCountry>
-            <span>
-                <CountryFlag src={props.flag} />
-                <FavCountry>{props.name}</FavCountry>
-            </span>
+            <CountryFlag src={props.flag} />
+            <FavCountry>{props.name}</FavCountry>
             <StyledClearIcon />
         </StyledFavCountry>
     );
