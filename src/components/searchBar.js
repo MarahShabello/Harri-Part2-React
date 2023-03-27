@@ -10,10 +10,6 @@ const Search = styled('div')(({ theme }) => ({
     fontFamily: 'Nunito Sans',
     margin: '0',
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(1),
-        width: 'auto',
-    },
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -48,7 +44,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const StyledToolbar = styled(Toolbar)(() => ({
     padding: '0',
     margin: '0',
-    marginLeft: '-32px'
+    marginLeft: '-25px'
 }))
 
 function SearchAppBar() {
