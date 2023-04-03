@@ -4,27 +4,25 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import HomePage from './home';
-import DetailsPage from './countryDetails';
+import HomePage from './pages/home';
+import DetailsPage from './pages/countryDetails';
 
-import BelgiumFlag from './images/belgium.svg';
+import { ThemeProvider } from './switchTheme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter basename='/Harri-Part2-React'>
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
+  <ThemeProvider>
+    <React.StrictMode>
+      <BrowserRouter basename='/Harri-Part2-React'>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
 
-        <Route path="/details"
-          element={<DetailsPage
-            name="Belgium"
-            countryFlag={BelgiumFlag}
-          />}
-        />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+          <Route path="/details/:countryCode" element={<DetailsPage />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
+  </ThemeProvider>
 );
 
 reportWebVitals();
