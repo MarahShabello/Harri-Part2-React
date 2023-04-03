@@ -29,14 +29,15 @@ const FavCountry = styled('span')(() => ({
     fontFamily: 'Nunito Sans',
     fontWeight: '600',
     fontSize: '18px',
-    marginLeft: '-120px'
 }));
 
 function FavouriteCountry(props) {
     return (
         <StyledFavCountry>
-            <CountryFlag src={props.flag} />
-            <FavCountry>{props.name}</FavCountry>
+            <FavCountry>
+                <CountryFlag src={props.flag} />
+                {props.name}
+            </FavCountry>
             <StyledClearIcon />
         </StyledFavCountry>
     );

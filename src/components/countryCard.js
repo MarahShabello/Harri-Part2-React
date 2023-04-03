@@ -1,37 +1,28 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
 
 const StyledCountryName = styled(Typography)(() => ({
-    fontFamily: 'Nunito Sans',
-    fontWeight: '800',
+    fontWeight: '600',
     fontSize: '20px',
     textDecoration: 'none',
     marginBottom: '20px'
 }));
 
 const StyledCountryData = styled('span')(() => ({
-    fontFamily: 'Nunito Sans',
     fontWeight: '600',
     fontSize: '16px',
     marginRight: '5px'
 }));
 
 const StyledRow = styled('div')(() => ({
-    fontFamily: 'Nunito Sans',
     fontWeight: '300',
     fontSize: '16px',
     marginBottom: '5px'
 }));
 
-const StyledLink = styled(Link)(() => ({
-    textDecoration: 'none',
-    color: '#111517'
-}));
-
-const StyledStarIcon = styled(StarRateRoundedIcon)(({theme}) => ({
+const StyledStarIcon = styled(StarRateRoundedIcon)(({ theme }) => ({
     color: 'lightgray',
     fontSize: '35px',
     marginInlineStart: 'auto',
@@ -52,10 +43,11 @@ const SryledCard = styled(Card)(() => ({
     border: 'none',
     borderRadius: '8px',
     boxShadow: '1px 1px 8px lightgray',
-    width: 290,
+    // maxWidth: 350,
+    width: 'auto',
 }));
 
-const StyledCardContent = styled(CardContent)(({theme}) => ({
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
     marginTop: '10px',
     marginLeft: '5px',
     marginRight: '5px',
@@ -73,36 +65,37 @@ const StyledCardMedia = styled(CardMedia)(() => ({
 }));
 
 function ActionAreaCard(props) {
+    const { flagURL, name, population, region, capital } = props;
     return (
         <SryledCard>
 
-            <StyledLink to="/details">
+            {/* <StyledLink to="/details"> */}
                 <CardActionArea>
                     <StyledCardMedia
                         component="img"
-                        src={props.flagURL}
-                        alt={props.name}
+                        src={flagURL}
+                        alt={name}
                     />
                     <StyledCardContent>
                         <StyledCountryName gutterBottom variant="h5" component="div">
-                            {props.name}
+                            {name}
                         </StyledCountryName>
 
                         <StyledRow>
                             <StyledCountryData>Population:</StyledCountryData>
-                            {props.population}
+                            {population}
                         </StyledRow>
                         <StyledRow>
                             <StyledCountryData>Region:</StyledCountryData>
-                            {props.region}
+                            {region}
                         </StyledRow>
                         <StyledRow>
                             <StyledCountryData>Capital:</StyledCountryData>
-                            {props.capital}
+                            {capital}
                         </StyledRow>
                     </StyledCardContent>
                 </CardActionArea>
-            </StyledLink>
+            {/* </StyledLink> */}
             <StyledRow>
                 <StyledStarIcon />
             </StyledRow>

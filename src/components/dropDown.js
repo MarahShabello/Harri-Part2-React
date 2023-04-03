@@ -1,30 +1,29 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Box, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
+
 
 const StyledBox = styled(Box)(() => ({
   width: '175px'
 }));
 
 const StyledInputLabel = styled(InputLabel)(() => ({
-  fontFamily: 'Nunito Sans',
   backgroundColor: '#fff',
 }));
 
 const StyledSelect = styled(Select)(() => ({
-  fontFamily: 'Nunito Sans',
   textAlign: 'left',
   backgroundColor: '#fff',
   height: '100%',
   borderRadius: '4px',
 }));
 
-function BasicSelect() {
-  const [region, setFilter] = React.useState('');
+const BasicSelect = ({onFilter}) => {
+  const [filter, setFilter] = useState('no-filter');
 
   const handleChange = (event) => {
     setFilter(event.target.value);
-    console.log(`Region: ${event.target.value}`)
+    onFilter(event.target.value)
   };
 
   return (
@@ -34,7 +33,7 @@ function BasicSelect() {
         <StyledSelect
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={region}
+          value={filter}
           label="Region"
           onChange={handleChange}
         >

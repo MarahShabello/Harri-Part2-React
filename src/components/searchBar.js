@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import { Box, Toolbar, InputBase } from '@mui/material';
@@ -7,7 +7,6 @@ const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: '#fff',
-    fontFamily: 'Nunito Sans',
     margin: '0',
     width: '100%',
 }));
@@ -28,7 +27,6 @@ const StyledSearchIcon = styled(SearchIcon)(() => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    fontFamily: 'Nunito Sans',
     margin: '0',
     color: '#858585',
     '& .MuiInputBase-input': {
@@ -47,7 +45,14 @@ const StyledToolbar = styled(Toolbar)(() => ({
     marginLeft: '-25px'
 }))
 
-function SearchAppBar() {
+function SearchAppBar({onSearch}) {
+    const [searchValue, setSearchValue] = useState('');
+
+    const handleChange = (event) => {
+        setSearchValue(event.target.value);
+        onSearch(event.target.value)
+    }
+
     return (
         <Box>
             <StyledToolbar>
@@ -58,6 +63,8 @@ function SearchAppBar() {
                     <StyledInputBase
                         placeholder="Search for a country … "
                         inputProps={{ 'aria-label': 'search' }}
+                        value={searchValue}
+                        onChange={handleChange}
                     />
                 </Search>
             </StyledToolbar>
