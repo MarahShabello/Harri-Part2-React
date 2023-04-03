@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import { Box, List, ListItem } from '@mui/material/';
 
 const StyledBox = styled(Box)(({ theme }) => ({
-    backgroundColor: '#fff',
+    backgroundColor: 'inerit',
     color: '#111517',
     marginRight: '80px',
     [theme.breakpoints.down('md')]: {

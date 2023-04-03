@@ -12,8 +12,7 @@ const StyledBorder = styled(Button)(() => ({
     padding: '8px'
 }));
 
-function CountryBorders({ props }) {
-    const borders = props;
+function CountryBorders({ borders }) {
     return (
         <Stack direction="row" spacing={2}>
             {borders.map(border => {
