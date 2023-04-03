@@ -1,1 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Nunito Sans';
+}
+
+.light{
+    --theme-bg-color: #fafafa;
+    --theme-font-color: #111517;
+    --theme-bg-elements: white;
+    background-color: var(--theme-bg-color);
+    color: var(--theme-font-color);
+}
+
+.dark{
+    --theme-bg-color: #202c37;
+    --theme-font-color: white;
+    --theme-bg-elements: #2b3945;
+    background-color: var(--theme-bg-color);
+    color: var(--theme-font-color);
+}
